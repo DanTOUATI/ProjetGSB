@@ -32,7 +32,7 @@ public class FonctionsMetier implements IMetier {
           try {
             maCnx=ConnexionBdd.getCnx();
             //on ecrit dans le ps la requete
-            ps= maCnx.prepareStatement("SELECT visiteur.id_vis,visiteur.nom_vis,visiteur.prenom_vis,visiteur.adresse_vis,visiteur.CP_vis,visiteur.ville_vis,visiteur.dateEmbauche_vis,secteur.libelle_sec,labo.nom_labo FROM secteur INNER join visiteur on secteur.id_sec = visiteur.id_sec INNER join labo on visiteur.id_labo = labo.id_labo;");
+            ps= maCnx.prepareStatement("SELECT visiteur.id_vis,visiteur.nom_vis,visiteur.prenom_vis,visiteur.adresse_vis,visiteur.CP_vis,visiteur.ville_vis,visiteur.dateEmbauche_vis,secteur.libelle_sec,labo.nom_labo FROM secteur INNER join visiteur on secteur.id_sec = visiteur.id_sec INNER join labo on visiteur.id_labo = labo.id_labo order by visiteur.id_vis;");
             rs=ps.executeQuery();
             
             while(rs.next())
@@ -112,14 +112,7 @@ public class FonctionsMetier implements IMetier {
         return mesLabo;
         
     }
-
-    @Override
-    public ArrayList<Visiteurs> getAllVisiteursByRegion(String nomRegion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-  
-
+    
     @Override
     public void InsererVisiteurs(String nom, String Prenom,String adresse ,String cp, String ville,String dateEmbauche, String secteur, String labo) {
         

@@ -286,8 +286,8 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
             {
                 fm.InsererNum(txtPrenom.getText(),txtNom.getText(),txtNum.getText(),txtMail.getText());
                 this.setVisible(false);
-                frmVerificationCodeTelephone frmVerif = new frmVerificationCodeTelephone();
-                frmVerif.setVisible(true);
+                frmTableauDeBord frmTDB = new frmTableauDeBord();
+                frmTDB.setVisible(true);
             }
             else
             {

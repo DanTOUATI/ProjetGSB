@@ -145,10 +145,17 @@ public class frmSecteur extends javax.swing.JFrame {
         }
         else
         {
-            fm.InsererSecteur(txtNom.getText());
-            this.setVisible(false);
-            frmEnregistrementSecteurSucces frmSecSucc = new frmEnregistrementSecteurSucces();
-            frmSecSucc.setVisible(true);
+            if(txtNom.getText().matches( "[a-zA-Z-]*"))
+            {
+                fm.InsererSecteur(txtNom.getText());
+                frmEnregistrementSecteurSucces frmSucces = new frmEnregistrementSecteurSucces();
+                frmSucces.setVisible(true);
+                dispose();
+            }
+           else
+           {
+               JOptionPane.showMessageDialog(this, "Veuillez entrer que des lettres");
+           }
         }
     }//GEN-LAST:event_btnValiderMouseClicked
 

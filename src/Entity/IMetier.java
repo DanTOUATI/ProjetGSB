@@ -18,12 +18,10 @@ public interface IMetier {
     public ArrayList<Visiteurs> getAllVisiteurs();
     public ArrayList<Regions> getAllRegions();
     public ArrayList<Secteurs> getAllSecteur();
-    public ArrayList<Visiteurs> getAllVisiteursByRegion(String nomRegion);
     public ArrayList<Labo>getAllLabo();
     public void InsererVisiteurs(String nom,String Prenom,String adresse,String cp,String ville,String dateEmbauche,String secteur,String labo);
     public void InsererRegion(String nom,String libelle);
     public void InsererSecteur(String libelle);
-    //public void InsererVisiteurByNomRegion(int idVisiteur,String nomRegion);
     public void modifierRegion(int idReg,String nomReg);
     public void modifierSecteur(int id,String secteur);
     public void ModifierVisiteur(int id,String nom, String prenom, String adresse, int cp, String ville, String dateEmbauche, String secteur,String labo);
