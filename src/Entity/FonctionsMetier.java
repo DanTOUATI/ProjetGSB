@@ -181,19 +181,8 @@ public class FonctionsMetier implements IMetier {
         }
     }
 
-//    @Override
-//    public void InsererVisiteurByNomRegion(int idVisiteur, String nomRegion) {
-//        try {
-//            maCnx = ConnexionBdd.getCnx();
-//            ps= maCnx.prepareStatement("select labo.nom_labo from labo");
-//            rs=ps.executeQuery();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
-//        }     
-//    }
-
     @Override
-    public void ModifierVisiteur(int id,String nom, String prenom, String adresse, int cp, String ville, String dateEmbauche, String secteur,String labo) {
+    public void ModifierVisiteur(int id,String nom, String prenom, String adresse, int cp, String ville, String dateEmbauche, String secteur,String labo,String region) {
        try {
             maCnx=ConnexionBdd.getCnx();
             String maSQL="SELECT secteur.id_sec FROM secteur WHERE secteur.libelle_sec='"+secteur+"'";
@@ -201,7 +190,6 @@ public class FonctionsMetier implements IMetier {
             rs=ps.executeQuery();
             rs.next();
             int numSecteur = rs.getInt(1);
-            //System.out.println(rs.getInt(0));
             rs.close();
             
             maCnx=ConnexionBdd.getCnx();
@@ -213,7 +201,18 @@ public class FonctionsMetier implements IMetier {
             rs.close();
             
             maCnx=ConnexionBdd.getCnx();
-            maSQL= "UPDATE visiteur SET visiteur.nom_vis='"+nom+"',visiteur.prenom_vis='"+prenom+"',visiteur.adresse_vis='"+adresse+"',visiteur.CP_vis='"+cp+"',visiteur.ville_vis='"+ville+"',visiteur.dateEmbauche_vis='"+dateEmbauche+"',visiteur.id_sec='"+numSecteur+"',visiteur.id_labo='"+numLabo+"' WHERE visiteur.id_vis ="+id;
+            maSQL="SELECT region.id_region FROM region WHERE region.region_nom='"+region+"'";
+            ps= maCnx.prepareStatement(maSQL);
+            rs=ps.executeQuery();
+            rs.next();
+            int numRegion = rs.getInt(1);
+            rs.close();
+            
+            maCnx=ConnexionBdd.getCnx();
+            maSQL= "UPDATE visiteur SET visiteur.nom_vis='"+nom+"',visiteur.prenom_vis='"+prenom+"',"
+                    + "visiteur.adresse_vis='"+adresse+"',visiteur.CP_vis='"+cp+"',visiteur.ville_vis='"+ville+"',"
+                    + "visiteur.dateEmbauche_vis='"+dateEmbauche+"',visiteur.id_sec='"+numSecteur+"',visiteur.id_labo='"+numLabo+"',"
+                    + "visiteur.id_region='"+numRegion+"' WHERE visiteur.id_vis ="+id;
             ps= maCnx.prepareStatement(maSQL);
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -283,16 +282,4 @@ public class FonctionsMetier implements IMetier {
         }
         return res;
     }
-}
-
-  
-    
-    
-
-
-    
-
-   
-
-
-  
+}  

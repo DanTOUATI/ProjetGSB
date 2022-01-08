@@ -275,7 +275,8 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
             CBLabo.addItem(lab.getNomLabo());
         }
         
-        for (Regions reg:fm.getAllRegions()){
+        for (Regions reg:fm.getAllRegions())
+        {
             cbRegion.addItem(reg.getNomRegion());
         }
                                   
@@ -327,17 +328,12 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
             CalendarDateEmbauche.setDate(dateVisiteur);
         } catch (ParseException ex) {
             Logger.getLogger(frmBDDVisiteur.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-        
-        
+        } 
     }//GEN-LAST:event_tblBDDVisiteursMouseClicked
 
     private void btnModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModifierMouseClicked
          if (tblBDDVisiteurs.getSelectedRow()<0)
          {
-//            lblDenied.setText("Veuillez selectionner une Region à modifier");
-//            lblValidate.setText("");
              JOptionPane.showMessageDialog(this, "Veuillez choisir une ligne à modifier");
          }
          else
@@ -348,7 +344,7 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
             fm= new FonctionsMetier();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String date = sdf.format(CalendarDateEmbauche.getDate());
-            fm.ModifierVisiteur(idVisiteur, txtNom.getText(),txtPrenom.getText(),txtAdresse.getText(),Integer.parseInt(txtCodePostal.getText()),txtVille.getText(),date,CBSecteur.getSelectedItem().toString(),CBLabo.getSelectedItem().toString());
+            fm.ModifierVisiteur(idVisiteur, txtNom.getText(),txtPrenom.getText(),txtAdresse.getText(),Integer.parseInt(txtCodePostal.getText()),txtVille.getText(),date,CBSecteur.getSelectedItem().toString(),CBLabo.getSelectedItem().toString(),cbRegion.getSelectedItem().toString());
             ActualisationTableau();
          }
         
@@ -360,7 +356,6 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
         ModelUser mdlUser = new ModelUser();
         mdlUser.LoadDats10Colonnes(fm.getAllVisiteurs());
         tblBDDVisiteurs.setModel(mdlUser);
-        fm = new FonctionsMetier();
         
     }
     /**

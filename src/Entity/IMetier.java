@@ -24,7 +24,7 @@ public interface IMetier {
     public void InsererSecteur(String libelle);
     public void modifierRegion(int idReg,String nomReg);
     public void modifierSecteur(int id,String secteur);
-    public void ModifierVisiteur(int id,String nom, String prenom, String adresse, int cp, String ville, String dateEmbauche, String secteur,String labo);
+    public void ModifierVisiteur(int id,String nom, String prenom, String adresse, int cp, String ville, String dateEmbauche, String secteur,String labo,String region);
     public void InsererNum (String Prenom,String Nom,String numTel,String mail);
     public Responsable VerfierIdentifiants(String Prenom, String Mail);
    
