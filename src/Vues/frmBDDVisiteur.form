@@ -80,20 +80,19 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtNom" min="-2" pref="240" max="-2" attributes="0"/>
                               <Component id="txtPrenom" alignment="0" min="-2" pref="240" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Component id="txtVille" alignment="1" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <Component id="txtCodePostal" alignment="1" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <Component id="txtAdresse" alignment="1" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="CalendarDateEmbauche" max="32767" attributes="0"/>
-                                      <Component id="CBSecteur" max="32767" attributes="0"/>
-                                      <Component id="CBLabo" min="-2" pref="240" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtVille" alignment="0" pref="240" max="32767" attributes="0"/>
+                                  <Component id="txtCodePostal" alignment="0" pref="240" max="32767" attributes="0"/>
+                                  <Component id="txtAdresse" alignment="0" pref="240" max="32767" attributes="0"/>
+                                  <Component id="CalendarDateEmbauche" max="32767" attributes="0"/>
+                                  <Component id="CBSecteur" max="32767" attributes="0"/>
+                                  <Component id="CBLabo" pref="240" max="32767" attributes="0"/>
+                                  <Component id="cbRegion" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
                           <Component id="btnModifier" min="-2" pref="153" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -142,6 +141,8 @@
                           <Component id="CBSecteur" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="CBLabo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="cbRegion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnModifier" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -338,6 +339,16 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnModifierMouseClicked"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbRegion">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

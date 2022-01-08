@@ -24,6 +24,8 @@ public class Visiteurs
     private int idLabo;
     private String libelleSecteur;
     private String nomLabo;
+    private int idRegion;
+    private String nomRegion;
     
     public Visiteurs(int unId,String unNom,String unPrenom,String uneAdresse,int unCP,String uneVille,Date uneDate,int unIdSec,int unIdLabo)
     {
@@ -38,7 +40,7 @@ public class Visiteurs
         idLabo = unIdLabo;
     }
 
-    public Visiteurs(int unId,String unNom,String unPrenom,String uneAdresse,int unCP,String uneVille,Date uneDate,String unLibelle,String UnNomLabo)
+    public Visiteurs(int unId,String unNom,String unPrenom,String uneAdresse,int unCP,String uneVille,Date uneDate,String unLibelle,String UnNomLabo,String unNomRegion)
     {
         idVisiteur = unId;
         nomVisiteur = unNom;
@@ -49,6 +51,7 @@ public class Visiteurs
         dateEmbaucheVisiteur = uneDate;
         libelleSecteur = unLibelle;
         nomLabo = UnNomLabo;
+        nomRegion = unNomRegion;
     }
     /**
      * @return the idVisiteur
@@ -202,6 +205,34 @@ public class Visiteurs
      */
     public void setNomLabo(String nomLabo) {
         this.nomLabo = nomLabo;
+    }
+
+    /**
+     * @return the idRegion
+     */
+    public int getIdRegion() {
+        return idRegion;
+    }
+
+    /**
+     * @param idRegion the idRegion to set
+     */
+    public void setIdRegion(int idRegion) {
+        this.idRegion = idRegion;
+    }
+
+    /**
+     * @return the nomRegion
+     */
+    public String getNomRegion() {
+        return nomRegion;
+    }
+
+    /**
+     * @param nomRegion the nomRegion to set
+     */
+    public void setNomRegion(String nomRegion) {
+        this.nomRegion = nomRegion;
     }
     
     

@@ -275,7 +275,6 @@ public class frmBDDRegion extends javax.swing.JFrame {
         else if(txtRegion.getText().matches( "[a-zA-Z-]*"))
         {
             int idRegion=Integer.parseInt(tblBddRegion.getValueAt(tblBddRegion.getSelectedRow(),0).toString());
-            System.out.println(idRegion);
             String nomRegion=txtRegion.getText();
             ConnexionBdd cnx= new ConnexionBdd();
             fm= new FonctionsMetier();

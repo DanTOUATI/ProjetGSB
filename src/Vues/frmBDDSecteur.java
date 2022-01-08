@@ -252,7 +252,7 @@ public class frmBDDSecteur extends javax.swing.JFrame {
         if (tblBddSec.getSelectedRow()<0){
             lblDenied.setText("Veuillez selectionner un secteur à modifier");
             lblValidate.setText("");
-        }else if(txtSecteur.getText().matches( " [a-zA-Z]*-?[a-zA-Z]* " )){
+        }else if(txtSecteur.getText().matches( "[a-zA-Z-]*" )){
             lblValidate.setText("");
             lblDenied.setText("Veuillez ne mettre que des lettres svp");
         }else{

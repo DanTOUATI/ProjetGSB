@@ -8,6 +8,7 @@ package Vues;
 import Entity.ConnexionBdd;
 import Entity.FonctionsMetier;
 import Entity.Labo;
+import Entity.Regions;
 import Entity.Secteurs;
 import Entity.Visiteurs;
 import Model.ModelUser;
@@ -56,6 +57,7 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
         CBSecteur = new javax.swing.JComboBox<>();
         CBLabo = new javax.swing.JComboBox<>();
         btnModifier = new javax.swing.JButton();
+        cbRegion = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -182,16 +184,16 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtVille, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtCodePostal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtAdresse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(CalendarDateEmbauche, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(CBSecteur, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(CBLabo, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtVille, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(txtCodePostal, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(txtAdresse, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(CalendarDateEmbauche, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CBSecteur, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CBLabo, 0, 240, Short.MAX_VALUE)
+                                .addComponent(cbRegion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
+                        .addGap(125, 125, 125)
                         .addComponent(btnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -234,6 +236,8 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CBLabo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbRegion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnModifier))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
@@ -267,9 +271,12 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
         }
         
         for (Labo lab : fm.getAllLabo())
-        {
-            
+        {            
             CBLabo.addItem(lab.getNomLabo());
+        }
+        
+        for (Regions reg:fm.getAllRegions()){
+            cbRegion.addItem(reg.getNomRegion());
         }
                                   
         
@@ -311,6 +318,8 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
         CBLabo.setSelectedItem(nomLabo);
         String libelleSecteur=tblBDDVisiteurs.getValueAt(tblBDDVisiteurs.getSelectedRow(),7).toString();
         CBSecteur.setSelectedItem(libelleSecteur);
+        String nomRegion = tblBDDVisiteurs.getValueAt(tblBDDVisiteurs.getSelectedRow(), 9).toString();
+        cbRegion.setSelectedItem(nomRegion);
         
         
         try {           
@@ -349,7 +358,7 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
      private void ActualisationTableau(){
         ConnexionBdd cnx = new ConnexionBdd();
         ModelUser mdlUser = new ModelUser();
-        mdlUser.LoadDats9Colonnes(fm.getAllVisiteurs());
+        mdlUser.LoadDats10Colonnes(fm.getAllVisiteurs());
         tblBDDVisiteurs.setModel(mdlUser);
         fm = new FonctionsMetier();
         
@@ -398,6 +407,7 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
     private javax.swing.JButton btnRetour;
     private javax.swing.JButton btnSecteur;
     private javax.swing.JButton btnVisiteur;
+    private javax.swing.JComboBox<String> cbRegion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

@@ -32,12 +32,13 @@ public class FonctionsMetier implements IMetier {
           try {
             maCnx=ConnexionBdd.getCnx();
             //on ecrit dans le ps la requete
-            ps= maCnx.prepareStatement("SELECT visiteur.id_vis,visiteur.nom_vis,visiteur.prenom_vis,visiteur.adresse_vis,visiteur.CP_vis,visiteur.ville_vis,visiteur.dateEmbauche_vis,secteur.libelle_sec,labo.nom_labo FROM secteur INNER join visiteur on secteur.id_sec = visiteur.id_sec INNER join labo on visiteur.id_labo = labo.id_labo order by visiteur.id_vis;");
+            ps= maCnx.prepareStatement("SELECT visiteur.id_vis,visiteur.nom_vis,visiteur.prenom_vis,visiteur.adresse_vis,visiteur.CP_vis,visiteur.ville_vis,visiteur.dateEmbauche_vis,secteur.libelle_sec,labo.nom_labo,region.region_nom FROM region INNER join secteur on region.id_sec = secteur.id_sec INNER join visiteur on secteur.id_sec = visiteur.id_sec INNER join labo on visiteur.id_labo = labo.id_labo order by visiteur.id_vis;");
             rs=ps.executeQuery();
             
             while(rs.next())
             {
-                Visiteurs vis =new Visiteurs(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7),rs.getString(8),rs.getString(9));
+                Visiteurs vis =new Visiteurs(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5)
+                        ,rs.getString(6),rs.getDate(7),rs.getString(8),rs.getString(9),rs.getString(10));
                 mesVisiteurs.add(vis);
             }
            
@@ -114,7 +115,7 @@ public class FonctionsMetier implements IMetier {
     }
     
     @Override
-    public void InsererVisiteurs(String nom, String Prenom,String adresse ,String cp, String ville,String dateEmbauche, String secteur, String labo) {
+    public void InsererVisiteurs(String nom, String Prenom,String adresse ,String cp, String ville,String dateEmbauche, String secteur, String labo,String region) {
         
         try {
            maCnx=ConnexionBdd.getCnx();
@@ -133,7 +134,14 @@ public class FonctionsMetier implements IMetier {
             int numSecteur = rs.getInt(1);
             rs.close();
             
-            ps= maCnx.prepareStatement("INSERT INTO visiteur VALUES (null,'"+nom+"','"+Prenom+"','"+adresse+"','"+cp+"','"+ville+"','"+dateEmbauche+"',"+numSecteur+","+numLabo+")");
+            ps= maCnx.prepareStatement("select id_region from region where region_nom = '"+region+"'");
+            rs=ps.executeQuery();
+            rs.next();
+            
+            int numRegion = rs.getInt(1);
+            rs.close();
+            
+            ps= maCnx.prepareStatement("INSERT INTO visiteur VALUES (null,'"+nom+"','"+Prenom+"','"+adresse+"','"+cp+"','"+ville+"','"+dateEmbauche+"',"+numSecteur+","+numLabo+","+numRegion+")");
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);

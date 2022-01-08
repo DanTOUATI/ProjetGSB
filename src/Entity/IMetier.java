@@ -19,7 +19,7 @@ public interface IMetier {
     public ArrayList<Regions> getAllRegions();
     public ArrayList<Secteurs> getAllSecteur();
     public ArrayList<Labo>getAllLabo();
-    public void InsererVisiteurs(String nom,String Prenom,String adresse,String cp,String ville,String dateEmbauche,String secteur,String labo);
+    public void InsererVisiteurs(String nom,String Prenom,String adresse,String cp,String ville,String dateEmbauche,String secteur,String labo,String region);
     public void InsererRegion(String nom,String libelle);
     public void InsererSecteur(String libelle);
     public void modifierRegion(int idReg,String nomReg);
