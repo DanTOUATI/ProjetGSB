@@ -44,10 +44,10 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
         txtNum = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtNom = new javax.swing.JTextField();
+        txtPrenom = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txtPrenom = new javax.swing.JTextField();
+        txtNom = new javax.swing.JTextField();
         btnRetour = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,7 +134,7 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 51, 204));
         jLabel5.setText("Prénom");
 
-        txtNom.setBackground(new java.awt.Color(204, 204, 204));
+        txtPrenom.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -144,7 +144,7 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(txtNom)
+                .addComponent(txtPrenom)
                 .addGap(21, 21, 21))
         );
         jPanel3Layout.setVerticalGroup(
@@ -153,7 +153,7 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16))
         );
 
@@ -163,7 +163,7 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 51, 204));
         jLabel6.setText("Nom");
 
-        txtPrenom.setBackground(new java.awt.Color(204, 204, 204));
+        txtNom.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -173,7 +173,7 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addGap(32, 32, 32)
-                .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -182,7 +182,7 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16))
         );
 
@@ -267,7 +267,7 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
                 erreur = true; 
             } 
         }
-        if((txtMail.getText().isEmpty()) || (txtNom.getText().isEmpty())|| (txtNum.getText().isEmpty())|| (txtPrenom.getText().isEmpty()) || erreur)
+        if((txtMail.getText().isEmpty()) || (txtPrenom.getText().isEmpty())|| (txtNum.getText().isEmpty())|| (txtNom.getText().isEmpty()) || erreur)
         {
             if(erreur)
             {
@@ -284,16 +284,37 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
         {
             if (txtMail.getText().matches(".+@.+\\.[a-z]+"))
             {
-                fm.InsererNum(txtPrenom.getText(),txtNom.getText(),txtNum.getText(),txtMail.getText());
-                this.setVisible(false);
-                frmTableauDeBord frmTDB = new frmTableauDeBord();
-                frmTDB.setVisible(true);
+                if(txtNum.getText().length()==10)
+                {
+                    if(txtNom.getText().matches( "[a-zA-Z-]*"))
+                    {   
+                        if(txtPrenom.getText().matches( "[a-zA-Z-]*"))
+                        {
+                            fm.InsererNum(txtNom.getText(),txtPrenom.getText(),txtNum.getText(),txtMail.getText());
+                            this.setVisible(false);
+                            frmTableauDeBord frmTDB = new frmTableauDeBord();
+                            frmTDB.setVisible(true);
+                        }
+                        else
+                        {
+                           JOptionPane.showMessageDialog(this, "Le prénom doit comporter uniquement des lettres");
+                        }  
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(this, "Le nom doit comporter uniquement des lettres");
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Le numéro de téléphone doit contenir 10 chiffres");
+                }
+                
             }
             else
             {
                 JOptionPane.showMessageDialog(this, "l'adresse mail n'est pas valide");
             }
-            
         }   
     }//GEN-LAST:event_btnContinuerMouseClicked
 

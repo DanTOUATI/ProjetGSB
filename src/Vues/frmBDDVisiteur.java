@@ -355,8 +355,7 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
         ConnexionBdd cnx = new ConnexionBdd();
         ModelUser mdlUser = new ModelUser();
         mdlUser.LoadDats10Colonnes(fm.getAllVisiteurs());
-        tblBDDVisiteurs.setModel(mdlUser);
-        
+        tblBDDVisiteurs.setModel(mdlUser);   
     }
     /**
      * @param args the command line arguments

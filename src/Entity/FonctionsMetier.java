@@ -32,7 +32,12 @@ public class FonctionsMetier implements IMetier {
           try {
             maCnx=ConnexionBdd.getCnx();
             //on ecrit dans le ps la requete
-            ps= maCnx.prepareStatement("SELECT visiteur.id_vis,visiteur.nom_vis,visiteur.prenom_vis,visiteur.adresse_vis,visiteur.CP_vis,visiteur.ville_vis,visiteur.dateEmbauche_vis,secteur.libelle_sec,labo.nom_labo,region.region_nom FROM region INNER join secteur on region.id_sec = secteur.id_sec INNER join visiteur on secteur.id_sec = visiteur.id_sec INNER join labo on visiteur.id_labo = labo.id_labo order by visiteur.id_vis;");
+            ps= maCnx.prepareStatement("SELECT visiteur.id_vis,visiteur.nom_vis,visiteur.prenom_vis,visiteur.adresse_vis,visiteur.CP_vis,visiteur.ville_vis,visiteur.dateEmbauche_vis,secteur.libelle_sec,labo.nom_labo,region.region_nom\n" +
+"FROM visiteur \n" +
+"INNER join labo on visiteur.id_labo = labo.id_labo \n" +
+"inner join secteur on visiteur.id_sec=secteur.id_sec\n" +
+"INNER join region on secteur.id_sec = region.id_sec\n" +
+"order by visiteur.id_vis;");
             rs=ps.executeQuery();
             
             while(rs.next())
