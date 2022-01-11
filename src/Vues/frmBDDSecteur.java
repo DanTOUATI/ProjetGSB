@@ -8,6 +8,8 @@ package Vues;
 import Entity.ConnexionBdd;
 import Entity.FonctionsMetier;
 import Model.ModelSecteur;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -55,15 +57,15 @@ public class frmBDDSecteur extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(237, 240, 250));
+        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Base de donnée");
+        jLabel3.setText("Base de données");
 
         btnVisiteur.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnVisiteur.setForeground(new java.awt.Color(51, 0, 153));
+        btnVisiteur.setForeground(new java.awt.Color(51, 102, 255));
         btnVisiteur.setText("VISITEUR");
         btnVisiteur.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -72,7 +74,7 @@ public class frmBDDSecteur extends javax.swing.JFrame {
         });
 
         btnRegion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnRegion.setForeground(new java.awt.Color(51, 0, 153));
+        btnRegion.setForeground(new java.awt.Color(51, 102, 255));
         btnRegion.setText("REGION");
         btnRegion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -80,9 +82,9 @@ public class frmBDDSecteur extends javax.swing.JFrame {
             }
         });
 
-        btnSecteur.setBackground(new java.awt.Color(51, 0, 153));
+        btnSecteur.setBackground(new java.awt.Color(255, 255, 255));
         btnSecteur.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnSecteur.setForeground(new java.awt.Color(255, 255, 255));
+        btnSecteur.setForeground(new java.awt.Color(51, 102, 255));
         btnSecteur.setText("SECTEUR");
 
         btnRetour.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -112,11 +114,12 @@ public class frmBDDSecteur extends javax.swing.JFrame {
         lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/battement-de-coeur (1).png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cliquez sur un secteur à modifier");
+        jLabel1.setText("Cliquez pour modifier un secteur");
 
-        btnModifier.setBackground(new java.awt.Color(102, 153, 255));
+        btnModifier.setBackground(new java.awt.Color(255, 255, 255));
+        btnModifier.setForeground(new java.awt.Color(51, 102, 255));
         btnModifier.setText("MODIFIER");
         btnModifier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -133,40 +136,45 @@ public class frmBDDSecteur extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(btnVisiteur, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                .addComponent(btnRegion, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(182, 182, 182)
+                .addComponent(btnSecteur, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(162, 162, 162))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnRetour)
-                        .addGap(347, 347, 347)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(lblImg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVisiteur, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
-                .addComponent(btnRegion, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(btnSecteur, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(267, 267, 267))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblDenied, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblValidate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(133, 133, 133)
-                                .addComponent(txtSecteur, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnRetour)
+                                .addGap(359, 359, 359)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(176, 176, 176)
-                                .addComponent(btnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(160, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblDenied, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+                                    .addComponent(lblValidate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(176, 176, 176)
+                                        .addComponent(btnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(128, 128, 128)
+                                        .addComponent(txtSecteur, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,23 +188,23 @@ public class frmBDDSecteur extends javax.swing.JFrame {
                     .addComponent(btnRegion, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSecteur, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVisiteur, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1)
-                        .addGap(18, 18, 18)
+                        .addGap(25, 25, 25)
                         .addComponent(lblValidate)
                         .addGap(18, 18, 18)
                         .addComponent(lblDenied)
                         .addGap(13, 13, 13))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtSecteur, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
+                        .addGap(58, 58, 58)
                         .addComponent(btnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -249,23 +257,30 @@ public class frmBDDSecteur extends javax.swing.JFrame {
 
     private void btnModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModifierMouseClicked
 
-        if (tblBddSec.getSelectedRow()<0){
-            lblDenied.setText("Veuillez selectionner un secteur à modifier");
-            lblValidate.setText("");
-        }else if(txtSecteur.getText().matches( "[a-zA-Z-]*" )){
+        if (tblBddSec.getSelectedRow()<0)
+        {
+            JOptionPane.showMessageDialog(this, "Veuillez selectionner une ligne à modifier");
+        }
+        else if(txtSecteur.getText().matches( "[a-zA-Z-]*" ))
+        {
+            int idSecteur=Integer.parseInt(tblBddSec.getValueAt(tblBddSec.getSelectedRow(),0).toString());
+            String nomSecteur=txtSecteur.getText();
+            ConnexionBdd cnx= new ConnexionBdd();
+            fm= new FonctionsMetier();
+            fm.modifierSecteur(idSecteur,nomSecteur);
+            ActualisationTableau();
+            txtSecteur.setText(""); 
+            lblValidate.setText("Le secteur a bien été modifié");
+            lblDenied.setText("");
+            lblValidate.setForeground(Color.white);
+        }
+        else
+        {
             lblValidate.setText("");
             lblDenied.setText("Veuillez ne mettre que des lettres svp");
-        }else{
-        int idSecteur=Integer.parseInt(tblBddSec.getValueAt(tblBddSec.getSelectedRow(),0).toString());
-        String nomSecteur=txtSecteur.getText();
-        ConnexionBdd cnx= new ConnexionBdd();
-        fm= new FonctionsMetier();
-        fm.modifierSecteur(idSecteur,nomSecteur);
-        ActualisationTableau();
-        txtSecteur.setText(""); 
-        lblValidate.setText("Le secteur a bien été modifié");
-        lblDenied.setText("");
+            lblDenied.setForeground(Color.white);
         }
+         
     }//GEN-LAST:event_btnModifierMouseClicked
      private void ActualisationTableau(){
         ConnexionBdd cnx = new ConnexionBdd();

@@ -20,7 +20,8 @@ import javax.swing.JTextField;
  *
  * @author ilan_
  */
-public class FonctionsMetier implements IMetier {
+public class FonctionsMetier implements IMetier 
+{
     
     private ResultSet rs;
     private PreparedStatement ps;
@@ -39,7 +40,6 @@ public class FonctionsMetier implements IMetier {
 "INNER join region on secteur.id_sec = region.id_sec\n" +
 "order by visiteur.id_vis;");
             rs=ps.executeQuery();
-            
             while(rs.next())
             {
                 Visiteurs vis =new Visiteurs(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5)
