@@ -142,7 +142,10 @@ public class frmEnregistrementVisiteurSucces extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * lors d'un clique sur enregistrer un autre visiteur on est redirigé sur la page permettant de le faire
+ * @param evt 
+ */
     private void btnEnregistrerAutreVisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnregistrerAutreVisMouseClicked
         // TODO add your handling code here:
         // TODO add your handling code here:
@@ -151,6 +154,10 @@ public class frmEnregistrementVisiteurSucces extends javax.swing.JFrame {
         frmVis.setVisible(true);
     }//GEN-LAST:event_btnEnregistrerAutreVisMouseClicked
 
+    /**
+     * on est redirigé sur le tableau de bord 
+     * @param evt 
+     */
     private void btnRetourTDBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetourTDBMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);

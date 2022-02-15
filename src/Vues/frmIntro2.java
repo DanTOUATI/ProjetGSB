@@ -7,7 +7,7 @@ package Vues;
 
 /**
  *
- * @author Dell
+ * @author Dan
  */
 public class frmIntro2 extends javax.swing.JFrame {
 
@@ -142,7 +142,10 @@ public class frmIntro2 extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * on passe à la page suivante
+ * @param evt 
+ */
     private void btnSuivantMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuivantMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
@@ -150,6 +153,10 @@ public class frmIntro2 extends javax.swing.JFrame {
         frm3.setVisible(true);
     }//GEN-LAST:event_btnSuivantMouseClicked
 
+    /**
+     * on passe à la page de connexion
+     * @param evt 
+     */
     private void btnPasserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPasserMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);

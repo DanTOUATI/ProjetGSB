@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ilan_
+ * @author Dan
  */
 public class frmConnexionTelephone extends javax.swing.JFrame {
 
@@ -276,7 +276,9 @@ public class frmConnexionTelephone extends javax.swing.JFrame {
 
     private void btnContinuerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnContinuerMouseClicked
         // TODO add your handling code here:
-        
+        /**
+         * Lors d'un clique sur le bouton continuer on effectue plusieurs vérifications
+         */
         ConnexionBdd cnx = new ConnexionBdd();
         FonctionsMetier fm= new FonctionsMetier();     
         

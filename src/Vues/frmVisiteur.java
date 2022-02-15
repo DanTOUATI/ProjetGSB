@@ -284,7 +284,10 @@ public class frmVisiteur extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * au chargement du formulaire on parcours les listes des secteurs, régions et laboratoires
+ * @param evt 
+ */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         ConnexionBdd cnx = new ConnexionBdd();
@@ -304,6 +307,10 @@ public class frmVisiteur extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
+    /**
+     * lors d'un clique sur le bouton valider on effectue différentes vérifications
+     * @param evt 
+     */
     private void btnValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValiderMouseClicked
         // TODO add your handling code here:
         ConnexionBdd cnx = new ConnexionBdd();
@@ -338,7 +345,10 @@ public class frmVisiteur extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnValiderMouseClicked
-
+/**
+ * redirection vers le tableau de bord 
+ * @param evt 
+ */
     private void btnAnnulerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnnulerMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);

@@ -132,6 +132,10 @@ public class frmIntro1 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * on passe à la page suivante 
+     * @param evt 
+     */
     private void btnSuivantMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuivantMouseClicked
         // TODO add your handling code here:
           this.setVisible(false);
@@ -140,6 +144,10 @@ public class frmIntro1 extends javax.swing.JFrame {
             
     }//GEN-LAST:event_btnSuivantMouseClicked
 
+    /**
+     * on passe directement à la page de connexion
+     * @param evt 
+     */
     private void btnPasserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPasserMouseClicked
         // TODO add your handling code here:
          this.setVisible(false);

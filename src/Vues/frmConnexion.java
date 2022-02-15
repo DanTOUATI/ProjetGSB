@@ -12,7 +12,7 @@ import java.awt.Color;
 
 /**
  *
- * @author ilan_
+ * @author Dan
  */
 public class frmConnexion extends javax.swing.JFrame {
     FonctionsMetier fm;
@@ -183,7 +183,10 @@ public class frmConnexion extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Lors d'un clique sur le bouton Connexion on effectue plusieurs vérifications
+ * @param evt 
+ */
     private void btnConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConnexionMouseClicked
         // TODO add your handling code here:
         if(txtPrenom.getText().compareTo("")==0)
@@ -217,7 +220,10 @@ public class frmConnexion extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnConnexionMouseClicked
-
+/**
+ * Lorsqu'on clique sur le bouton inscription on est redirigé sur la page d'incription 
+ * @param evt 
+ */
     private void btnInscription1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInscription1MouseClicked
         // TODO add your handling code here:
         this.setVisible(false);

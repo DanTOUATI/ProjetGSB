@@ -7,7 +7,7 @@ package Vues;
 
 /**
  *
- * @author ilan_
+ * @author Dan
  */
 public class frmEnregistrementRegionSucces extends javax.swing.JFrame {
 
@@ -141,14 +141,20 @@ public class frmEnregistrementRegionSucces extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * lors d'un clique sur enregistrer une autre région on est redirigé sur la page permettant de le faire
+ * @param evt 
+ */
     private void btnEnregistrerAutreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnregistrerAutreMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         frmRegion frmR = new frmRegion();
         frmR.setVisible(true);
     }//GEN-LAST:event_btnEnregistrerAutreMouseClicked
-
+/**
+ * on est redirigé sur le tableau de bord 
+ * @param evt 
+ */
     private void btnRetourTDBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetourTDBMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);

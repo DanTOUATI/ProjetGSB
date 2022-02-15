@@ -13,7 +13,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Dell
+ * @author Dan
  */
 public class frmLoadScreen extends javax.swing.JFrame {
 //
@@ -124,7 +124,10 @@ public class frmLoadScreen extends javax.swing.JFrame {
 //}
         
     }//GEN-LAST:event_formWindowOpened
-
+/**
+ * on passe à la page suivante 
+ * @param evt 
+ */
     private void btnSuivantMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuivantMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);

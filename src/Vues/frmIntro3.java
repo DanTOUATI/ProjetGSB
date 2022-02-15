@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Dell
+ * @author Dan
  */
 public class frmIntro3 extends javax.swing.JFrame {
 
@@ -129,6 +129,10 @@ public class frmIntro3 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * on passe à la page suivante 
+     * @param evt 
+     */
     private void btnSuivantMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSuivantMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
@@ -136,6 +140,10 @@ public class frmIntro3 extends javax.swing.JFrame {
           frmCo.setVisible(true);
     }//GEN-LAST:event_btnSuivantMouseClicked
 
+    /**
+     * on passe à la page de connexion 
+     * @param evt 
+     */
     private void btnPasserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPasserMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);

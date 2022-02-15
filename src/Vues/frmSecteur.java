@@ -144,7 +144,10 @@ public class frmSecteur extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * on effectue différentes vérifications pour le champs renseigné
+ * @param evt 
+ */
     private void btnValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValiderMouseClicked
         // TODO add your handling code here:
         ConnexionBdd cnx = new ConnexionBdd();               
@@ -169,7 +172,10 @@ public class frmSecteur extends javax.swing.JFrame {
            }
         }
     }//GEN-LAST:event_btnValiderMouseClicked
-
+/**
+ * on retourne sur le tableau de bord
+ * @param evt 
+ */
     private void btnAnnulerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnnulerMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);

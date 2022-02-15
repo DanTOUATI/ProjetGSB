@@ -278,28 +278,40 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * redirection vers la page permettant d'enregistrer un visiteur
+ * @param evt 
+ */
     private void btnEnregistrerVisiteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnregistrerVisiteurMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         frmVisiteur frmVis = new frmVisiteur();
         frmVis.setVisible(true);
     }//GEN-LAST:event_btnEnregistrerVisiteurMouseClicked
-
+/**
+ * redirection vers la page permettant d'enregistrer une région
+ * @param evt 
+ */
     private void btnEnregistrerRegionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnregistrerRegionMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         frmRegion frmReg = new frmRegion();
         frmReg.setVisible(true);
     }//GEN-LAST:event_btnEnregistrerRegionMouseClicked
-
+/**
+ * redirection vers la page permettant d'enregistrer un secteur
+ * @param evt 
+ */
     private void btnEnregistrerSecteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnregistrerSecteurMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         frmSecteur frmSec = new frmSecteur();
         frmSec.setVisible(true);
     }//GEN-LAST:event_btnEnregistrerSecteurMouseClicked
-
+/**
+ * redirection vers la page permettant d'afficher et de modifier les données
+ * @param evt 
+ */
     private void btnBaseDeDoneeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaseDeDoneeMouseClicked
         this.setVisible(false);
         frmBDDRegion bddRegion = new frmBDDRegion();

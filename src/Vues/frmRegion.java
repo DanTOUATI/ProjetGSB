@@ -174,7 +174,10 @@ public class frmRegion extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * on effectue différentes vérifications pour le champs que l'on renseigne
+ * @param evt 
+ */
     private void btnValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValiderMouseClicked
         // TODO add your handling code here:
         
@@ -202,14 +205,20 @@ public class frmRegion extends javax.swing.JFrame {
           
         
     }//GEN-LAST:event_btnValiderMouseClicked
-
+/**
+ * on retourne au tableau de bord
+ * @param evt 
+ */
     private void btnAnnulerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnnulerMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         frmTDBVisRegSec frmTdbVRS = new frmTDBVisRegSec();
         frmTdbVRS.setVisible(true);
     }//GEN-LAST:event_btnAnnulerMouseClicked
-
+/**
+ * au chargement du formulaire on parcours la liste des secteurs 
+ * @param evt 
+ */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
          ConnexionBdd cnx = new ConnexionBdd();

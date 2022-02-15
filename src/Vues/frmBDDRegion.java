@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ilan_
+ * @author Dan
  */
 public class frmBDDRegion extends javax.swing.JFrame {
 
@@ -238,6 +238,10 @@ public class frmBDDRegion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * on actualise le tableau au chargement du formulaire
+     * @param evt 
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        ActualisationTableau();
     }//GEN-LAST:event_formWindowOpened
@@ -248,27 +252,39 @@ public class frmBDDRegion extends javax.swing.JFrame {
         frmTDBVisRegSec frmTdbVRS = new frmTDBVisRegSec();
         frmTdbVRS.setVisible(true);
     }//GEN-LAST:event_btnRetourMouseClicked
-
+/**
+ * lorsqu'on clique sur le bouton Secteur on est redirigé sur les secteurs
+ * @param evt 
+ */
     private void btnSecteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSecteurMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         frmBDDSecteur frmBddSec = new frmBDDSecteur();
         frmBddSec.setVisible(true);
     }//GEN-LAST:event_btnSecteurMouseClicked
-
+/**
+ * lorsqu'on clique sur le bouton Visiteur on est redirigé sur les visiteurs
+ * @param evt 
+ */
     private void btnVisiteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVisiteurMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         frmBDDVisiteur frmBddVis = new frmBDDVisiteur();
         frmBddVis.setVisible(true);
     }//GEN-LAST:event_btnVisiteurMouseClicked
-
+/**
+ * lors d'un clique sur le tableau de Region on affiche le nom de la region ou le clique à lieu 
+ * @param evt 
+ */
     private void tblBddRegionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBddRegionMouseClicked
 
         String nomRegion=tblBddRegion.getValueAt(tblBddRegion.getSelectedRow(),2).toString();
         txtRegion.setText(nomRegion);
     }//GEN-LAST:event_tblBddRegionMouseClicked
-
+/**
+ * lorsqu'on clique sur le bouton Modifier on effectue différentes vérifications
+ * @param evt 
+ */
     private void BtnModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnModifierMouseClicked
        
         if (tblBddRegion.getSelectedRow()<0 )
@@ -294,6 +310,9 @@ public class frmBDDRegion extends javax.swing.JFrame {
             lblDenied.setText("Veuillez ne mettre que des lettres svp");
             
         }
+        /**
+         * On actualise le tableau 
+         */
     }//GEN-LAST:event_BtnModifierMouseClicked
     private void ActualisationTableau(){
         ConnexionBdd cnx = new ConnexionBdd();

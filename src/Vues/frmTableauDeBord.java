@@ -152,7 +152,10 @@ public class frmTableauDeBord extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * redirection vers le tableau de bord
+ * @param evt 
+ */
     private void btnEnregistrerVRSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnregistrerVRSMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);

@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ilan_
+ * @author Dan
  */
 public class frmBDDSecteur extends javax.swing.JFrame {
 
@@ -223,19 +223,28 @@ public class frmBDDSecteur extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * au chargement du formulaire on actualise le tableau 
+ * @param evt 
+ */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         ActualisationTableau();
         
     }//GEN-LAST:event_formWindowOpened
-    
+    /**
+     * lorsqu'on clique sur le bouton Visiteur on est redirigé sur les visiteurs
+     * @param evt 
+     */
     private void btnVisiteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVisiteurMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
         frmBDDVisiteur frmBddVis = new frmBDDVisiteur();
         frmBddVis.setVisible(true);
     }//GEN-LAST:event_btnVisiteurMouseClicked
-
+/**
+ * lorsqu'on clique sur le bouton Region on est redirigé sur les régions
+ * @param evt 
+ */
     private void btnRegionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegionMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
@@ -249,12 +258,18 @@ public class frmBDDSecteur extends javax.swing.JFrame {
         frmTDBVisRegSec frmTdbVRS = new frmTDBVisRegSec();
         frmTdbVRS.setVisible(true);
     }//GEN-LAST:event_btnRetourMouseClicked
-
+/**
+ * lors d'un clique sur le tableau, on affiche le nom du secteur sélectionner
+ * @param evt 
+ */
     private void tblBddSecMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBddSecMouseClicked
         String nomSecteur=tblBddSec.getValueAt(tblBddSec.getSelectedRow(),1).toString();
         txtSecteur.setText(nomSecteur);
     }//GEN-LAST:event_tblBddSecMouseClicked
-
+/**
+ * Lors d'un clique sur le bouton Modifier on effectue différentes vérifications
+ * @param evt 
+ */
     private void btnModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModifierMouseClicked
 
         if (tblBddSec.getSelectedRow()<0)
@@ -280,7 +295,9 @@ public class frmBDDSecteur extends javax.swing.JFrame {
             lblDenied.setText("Veuillez ne mettre que des lettres svp");
             lblDenied.setForeground(Color.white);
         }
-         
+         /**
+          * Méthode permettant d'actualiser le tableau
+          */
     }//GEN-LAST:event_btnModifierMouseClicked
      private void ActualisationTableau(){
         ConnexionBdd cnx = new ConnexionBdd();
