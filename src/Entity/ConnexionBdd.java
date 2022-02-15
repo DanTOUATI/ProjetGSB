@@ -14,11 +14,13 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author ilan_
+ * @author Dan
  */
 public class ConnexionBdd {
     private static Connection cnx;
-    
+/**
+ * On se connecte a la base de données 
+ */
     public ConnexionBdd(){
         try {
             String chaine = "com.mysql.jdbc.Driver";

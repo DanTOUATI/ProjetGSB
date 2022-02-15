@@ -7,7 +7,8 @@ package Entity;
 
 /**
  *
- * @author ilan_
+ * @author Dan
+ * Création de la class Regions 
  */
 public class Regions 
 {
@@ -15,14 +16,20 @@ public class Regions
     private int idSecteur;
     private String nomRegion;
     private String libelleSec;
-    
+/**
+ * 
+ * 1er constructeur
+ */
     public Regions(int unId,int unIdSec,String unNom)
     {
         idRegion = unId;
         idSecteur = unIdSec ;
         nomRegion = unNom;
     }
-
+/**
+ * 
+ * 2eme constructeur
+ */
     Regions(int unId, String unLibelleSec, String unNom) 
     {
         idRegion = unId;
@@ -31,58 +38,40 @@ public class Regions
     }
 
 
-    /**
-     * @return the idRegion
-     */
+  
     public int getIdRegion() {
         return idRegion;
     }
 
-    /**
-     * @param idRegion the idRegion to set
-     */
+  
     public void setIdRegion(int idRegion) {
         this.idRegion = idRegion;
     }
 
-    /**
-     * @return the nomRegion
-     */
     public String getNomRegion() {
         return nomRegion;
     }
 
-    /**
-     * @param nomRegion the nomRegion to set
-     */
+    
     public void setNomRegion(String nomRegion) {
         this.nomRegion = nomRegion;
     }
 
-    /**
-     * @return the idSecteur
-     */
+   
     public int getIdSecteur() {
         return idSecteur;
     }
 
-    /**
-     * @param idSecteur the idSecteur to set
-     */
     public void setIdSecteur(int idSecteur) {
         this.idSecteur = idSecteur;
     }
 
-    /**
-     * @return the libelleSec
-     */
+    
     public String getLibelleSec() {
         return libelleSec;
     }
 
-    /**
-     * @param libelleSec the libelleSec to set
-     */
+    
     public void setLibelleSec(String libelleSec) {
         this.libelleSec = libelleSec;
     }

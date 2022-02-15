@@ -18,15 +18,22 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author ilan_
+ * @author dan
  */
 public class FonctionsMetier implements IMetier 
 {
-    
+  
+    /**
+     * déclaration de variables pour les requêtes SQL
+     */
     private ResultSet rs;
     private PreparedStatement ps;
     private Connection maCnx;
 
+    /**
+     * 
+     * on code la méthode pour récupérer tous les visiteurs 
+     */
     @Override
     public ArrayList<Visiteurs> getAllVisiteurs() {
          ArrayList<Visiteurs>mesVisiteurs = new ArrayList <Visiteurs>();
@@ -37,7 +44,7 @@ public class FonctionsMetier implements IMetier
 "FROM visiteur \n" +
 "INNER join labo on visiteur.id_labo = labo.id_labo \n" +
 "inner join secteur on visiteur.id_sec=secteur.id_sec\n" +
-"INNER join region on secteur.id_sec = region.id_sec\n" +
+"INNER join region on secteur.id_sec = region.id_sec\n" +            
 "order by visiteur.id_vis;");
             rs=ps.executeQuery();
             while(rs.next())
@@ -54,6 +61,10 @@ public class FonctionsMetier implements IMetier
     
     }
 
+    /**
+     * 
+     * on code la méthode getAllRegions pour récupérer toutes les régions 
+     */
     @Override
     public ArrayList<Regions> getAllRegions() {
          ArrayList<Regions>mesRegions = new ArrayList<Regions>();
@@ -76,7 +87,10 @@ public class FonctionsMetier implements IMetier
         return mesRegions;
          
     }
-    
+    /**
+     * 
+     * la méthode getAllSecteurs permet d'afficher tous les secteurs 
+     */
     @Override
     public ArrayList<Secteurs> getAllSecteur() {
         ArrayList <Secteurs>mesSecteurs = new ArrayList<Secteurs>();
@@ -97,6 +111,10 @@ public class FonctionsMetier implements IMetier
         }
         return mesSecteurs;
     }
+    /**
+     * 
+     * on code la méthode pour récupérer tous les laboratoires  
+     */
     @Override
     public ArrayList<Labo> getAllLabo() {
          ArrayList <Labo>mesLabo = new ArrayList<Labo>();
@@ -118,7 +136,10 @@ public class FonctionsMetier implements IMetier
         return mesLabo;
         
     }
-    
+    /**
+     * 
+     * La méthode InsererVisiteurs permet d'enregistrer un nouveau visiteur en lui attribuant un nom, un prénom,une adresse,un code postal, une ville, une date d'embauche,un secteur, un laboratoire et une région
+     */
     @Override
     public void InsererVisiteurs(String nom, String Prenom,String adresse ,String cp, String ville,String dateEmbauche, String secteur, String labo,String region) {
         
@@ -152,7 +173,10 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+/**
+ * 
+ * InsererRegion permet d'enregistrer une nouvelle région en lui affectant un nom et un libellé
+ */
     @Override
     public void InsererRegion(String nom,String libelle) 
     {
@@ -173,7 +197,10 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+/**
+ * 
+ * InsererSecteur permet d'enregistrer un nouveau secteur en lui affectant un libellé
+ */
     @Override
     public void InsererSecteur(String libelle) {
         try {
@@ -185,7 +212,10 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+/**
+ * 
+ * Cette méthode permet de modifier un visiteur déjà existant
+ */
     @Override
     public void ModifierVisiteur(int id,String nom, String prenom, String adresse, int cp, String ville, String dateEmbauche, String secteur,String labo,String region) {
        try {
@@ -226,7 +256,10 @@ public class FonctionsMetier implements IMetier
     
     }
 
-
+/**
+ * 
+ * Cette méthode permet de modifier une région déjà existante
+ */
     @Override
     public void modifierRegion(int idReg,String nomReg) {
         try {
@@ -239,7 +272,10 @@ public class FonctionsMetier implements IMetier
         }
     }
     
-
+/**
+ * 
+ * Cette méthode permet de modifier un secteur déjà existant
+ */
     @Override
     public void modifierSecteur(int id,String secteur) {
         try {
@@ -251,7 +287,10 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    /**
+     * 
+     * Avec cette méthode, on ajoute en base de données un nouveau reponsable lorsqu'il clique sur inscription
+     */
     @Override
     public void InsererNum(String Nom,String Prenom, String numTel,String mail)
     {
@@ -264,7 +303,10 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+/**
+ * 
+ * VerifierIdentifiants consiste à verifier le mail et le nom lors de la connexion pour savoir si ils sont déjà en base de données. 
+ */
     @Override
     public Responsable VerfierIdentifiants(String Prenom, String Mail) 
     {

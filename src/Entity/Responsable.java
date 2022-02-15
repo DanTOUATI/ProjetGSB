@@ -7,7 +7,8 @@ package Entity;
 
 /**
  *
- * @author Dell
+ * @author Dan
+ * Création de la class Responsable 
  */
 public class Responsable 
 {
@@ -17,6 +18,10 @@ public class Responsable
     private String numTel;
     private String mailResponsable;
     
+/**
+ * 
+ * 1er constructeur
+ */    
     public Responsable(int unId, String unNom,String unPrenom,String unNum,String unMail)
     {
         idResponsable = unId;
@@ -26,15 +31,17 @@ public class Responsable
         mailResponsable = unMail;
     }
 
+/**
+ * 
+ * 2eme constructeur
+ */
     public Responsable(String unPrenom, String unMail) 
     {
       prenomResponsable = unPrenom;
       mailResponsable = unMail;
     }
 
-    /**
-     * @return the idResponsable
-     */
+   
     public int getIdResponsable() {
         return idResponsable;
     }
@@ -46,58 +53,41 @@ public class Responsable
         this.idResponsable = idResponsable;
     }
 
-    /**
-     * @return the nomResponsable
-     */
+   
     public String getNomResponsable() {
         return nomResponsable;
     }
 
-    /**
-     * @param nomResponsable the nomResponsable to set
-     */
+    
     public void setNomResponsable(String nomResponsable) {
         this.nomResponsable = nomResponsable;
     }
 
-    /**
-     * @return the prenomResponsable
-     */
+   
     public String getPrenomResponsable() {
         return prenomResponsable;
     }
 
-    /**
-     * @param prenomResponsable the prenomResponsable to set
-     */
+    
     public void setPrenomResponsable(String prenomResponsable) {
         this.prenomResponsable = prenomResponsable;
     }
 
-    /**
-     * @return the numTel
-     */
+   
     public String getNumTel() {
         return numTel;
     }
 
-    /**
-     * @param numTel the numTel to set
-     */
+   
     public void setNumTel(String numTel) {
         this.numTel = numTel;
     }
 
-    /**
-     * @return the mailResponsable
-     */
+   
     public String getMailResponsable() {
         return mailResponsable;
     }
 
-    /**
-     * @param mailResponsable the mailResponsable to set
-     */
     public void setMailResponsable(String mailResponsable) {
         this.mailResponsable = mailResponsable;
     }

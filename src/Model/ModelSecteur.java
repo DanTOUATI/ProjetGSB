@@ -11,7 +11,8 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author ilan_
+ * @author Dan
+ * Création de la class ModelSecteur permettant de générer le tableau
  */
 public class ModelSecteur extends AbstractTableModel{
 

@@ -11,7 +11,8 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author ilan_
+ * @author Dan
+ * Création de la class ModelRegion permettant de générer le tableau
  */
 public class ModelRegion extends AbstractTableModel{
 
@@ -36,7 +37,10 @@ public class ModelRegion extends AbstractTableModel{
     {
         return nomColonnes[numColonne];
     }
-    
+    /**
+     * 
+     * on lui passe les noms des colones 
+     */
     public void LoadDats3Colonnes(ArrayList<Regions> lesRegions)
     {
         nomColonnes= new String[]{"id Region","Libellé Secteur","Nom Region"};

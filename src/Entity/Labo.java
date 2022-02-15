@@ -7,7 +7,8 @@ package Entity;
 
 /**
  *
- * @author Dell
+ * @author Dan
+ * création de la class Labo 
  */
 public class Labo 
 {
@@ -15,6 +16,10 @@ public class Labo
     private String nomLabo;
     private String chefVenteLabo;
     
+    /**
+     * 
+     * Constructeur
+     */
     public Labo(int unId,String unNom,String unChef)
     {
         idLabo = unId;
@@ -26,44 +31,32 @@ public class Labo
         nomLabo = unNom;
     }
 
-    /**
-     * @return the idLabo
-     */
+    
     public int getIdLabo() {
         return idLabo;
     }
 
-    /**
-     * @param idLabo the idLabo to set
-     */
+    
     public void setIdLabo(int idLabo) {
         this.idLabo = idLabo;
     }
 
-    /**
-     * @return the nomLabo
-     */
+    
     public String getNomLabo() {
         return nomLabo;
     }
 
-    /**
-     * @param nomLabo the nomLabo to set
-     */
+    
     public void setNomLabo(String nomLabo) {
         this.nomLabo = nomLabo;
     }
 
-    /**
-     * @return the chefVenteLabo
-     */
+   
     public String getChefVenteLabo() {
         return chefVenteLabo;
     }
 
-    /**
-     * @param chefVenteLabo the chefVenteLabo to set
-     */
+    
     public void setChefVenteLabo(String chefVenteLabo) {
         this.chefVenteLabo = chefVenteLabo;
     }

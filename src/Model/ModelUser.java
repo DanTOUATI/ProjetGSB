@@ -10,7 +10,8 @@ import java.util.Vector;
 import javax.swing.table.AbstractTableModel;
 /**
  *
- * @author ilan_
+ * @author Dan
+ * Création de la class ModelUser permettant de générer le tableau
  */
 public class ModelUser extends AbstractTableModel{
 
