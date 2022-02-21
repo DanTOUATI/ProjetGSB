@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
@@ -329,4 +330,24 @@ public class FonctionsMetier implements IMetier
         }
         return res;
     }
+    @Override
+    public HashMap<String,Double> getDatasGraph1()
+        {
+            HashMap<String,Double> lesDatas = new HashMap<>();
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT secteur.libelle_sec,COUNT(region.id_region) FROM region "
+                    + "INNER JOIN secteur ON region.id_sec=secteur.id_sec "
+                    + "GROUP BY secteur.libelle_sec;");
+            rs= ps.executeQuery();
+            while(rs.next())
+            {
+                lesDatas.put(rs.getString(1), rs.getDouble(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           return lesDatas; 
+        }
 }  
+ 

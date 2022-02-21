@@ -89,6 +89,11 @@ public class frmTableauDeBord extends javax.swing.JFrame {
         );
 
         btnStatistique.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/femmeNotesTDB.png"))); // NOI18N
+        btnStatistique.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnStatistiqueMouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -162,6 +167,13 @@ public class frmTableauDeBord extends javax.swing.JFrame {
         frmTDBVisRegSec frmTdbVRS = new frmTDBVisRegSec();
         frmTdbVRS.setVisible(true);
     }//GEN-LAST:event_btnEnregistrerVRSMouseClicked
+
+    private void btnStatistiqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStatistiqueMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        frmStatistiques frmStat = new frmStatistiques();
+        frmStat.setVisible(true);
+    }//GEN-LAST:event_btnStatistiqueMouseClicked
 
     /**
      * @param args the command line arguments

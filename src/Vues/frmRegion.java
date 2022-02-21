@@ -187,7 +187,7 @@ public class frmRegion extends javax.swing.JFrame {
         }
         else
         {
-           if(txtNom.getText().matches( "[a-zA-Z-]*"))
+           if(txtNom.getText().matches( "^[^0-9]+$"))
             {
                 ConnexionBdd cnx = new ConnexionBdd();               
                 fm = new FonctionsMetier();

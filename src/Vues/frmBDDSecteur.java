@@ -276,7 +276,7 @@ public class frmBDDSecteur extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(this, "Veuillez selectionner une ligne à modifier");
         }
-        else if(txtSecteur.getText().matches( "[a-zA-Z-]*" ))
+        else if(txtSecteur.getText().matches( "^[^0-9]+$" ))
         {
             int idSecteur=Integer.parseInt(tblBddSec.getValueAt(tblBddSec.getSelectedRow(),0).toString());
             String nomSecteur=txtSecteur.getText();

@@ -7,6 +7,7 @@ package Entity;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  *
@@ -74,4 +75,5 @@ public interface IMetier {
      * Méthode permettant de vérifier les identifiants lorsqu'une personne se connecte.
      */
     public Responsable VerfierIdentifiants(String Prenom, String Mail);
+    public HashMap<String,Double> getDatasGraph1();
 }

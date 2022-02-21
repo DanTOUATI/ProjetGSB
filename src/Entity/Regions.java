@@ -30,15 +30,13 @@ public class Regions
  * 
  * 2eme constructeur
  */
-    Regions(int unId, String unLibelleSec, String unNom) 
+   public Regions(int unId, String unLibelleSec, String unNom) 
     {
         idRegion = unId;
         libelleSec = unLibelleSec;
         nomRegion = unNom;
     }
 
-
-  
     public int getIdRegion() {
         return idRegion;
     }

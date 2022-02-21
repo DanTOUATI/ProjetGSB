@@ -159,7 +159,7 @@ public class frmSecteur extends javax.swing.JFrame {
         }
         else
         {
-            if(txtNom.getText().matches( "[a-zA-Z- /\\s/g]*"))
+            if(txtNom.getText().matches( "^[^0-9]+$"))
             {
                 fm.InsererSecteur(txtNom.getText());
                 frmEnregistrementSecteurSucces frmSucces = new frmEnregistrementSecteurSucces();

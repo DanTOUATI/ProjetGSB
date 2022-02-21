@@ -291,7 +291,7 @@ public class frmBDDRegion extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(this,"Veuillez selectionner une ligne à modifier");
         }
-        else if(txtRegion.getText().matches( "[a-zA-Z-]*"))
+        else if(txtRegion.getText().matches( "^[^0-9]+$"))
         {
             int idRegion=Integer.parseInt(tblBddRegion.getValueAt(tblBddRegion.getSelectedRow(),0).toString());
             String nomRegion=txtRegion.getText();
