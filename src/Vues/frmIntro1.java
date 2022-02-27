@@ -41,7 +41,7 @@ public class frmIntro1 extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(400, 800));
         setSize(new java.awt.Dimension(350, 800));
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         lblGSBF.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblGSBF.setText("GSB France");

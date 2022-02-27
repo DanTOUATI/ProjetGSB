@@ -29,6 +29,7 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblTableauDeBord = new javax.swing.JLabel();
+        btnRetour = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -36,7 +37,7 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lblBDD = new javax.swing.JLabel();
-        btnBaseDeDonee = new javax.swing.JLabel();
+        btnTravailler = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -57,6 +58,13 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
         lblTableauDeBord.setForeground(new java.awt.Color(51, 102, 255));
         lblTableauDeBord.setText("VISITEURS REGIONS SECTEUR");
 
+        btnRetour.setText("<");
+        btnRetour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetourActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -65,11 +73,16 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
                 .addContainerGap(123, Short.MAX_VALUE)
                 .addComponent(lblTableauDeBord, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(111, 111, 111))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btnRetour, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnRetour)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(lblTableauDeBord, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -125,19 +138,19 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
         lblBDD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBDD.setText("BASE DE DONNÉES");
 
-        btnBaseDeDonee.setBackground(new java.awt.Color(51, 102, 255));
-        btnBaseDeDonee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/femmeNotesTDB.png"))); // NOI18N
-        btnBaseDeDonee.setText("jLabel5");
-        btnBaseDeDonee.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnTravailler.setBackground(new java.awt.Color(51, 102, 255));
+        btnTravailler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/femmeNotesTDB.png"))); // NOI18N
+        btnTravailler.setText("jLabel5");
+        btnTravailler.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBaseDeDoneeMouseClicked(evt);
+                btnTravaillerMouseClicked(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("BASE DE DONNEES");
+        jLabel7.setText("ENREGISTRER UN TRAVAILLER");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -152,7 +165,7 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBaseDeDonee, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnTravailler, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -160,7 +173,7 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBaseDeDonee)
+                .addComponent(btnTravailler)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addGap(165, 165, 165)
@@ -210,7 +223,9 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,11 +327,17 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
  * redirection vers la page permettant d'afficher et de modifier les données
  * @param evt 
  */
-    private void btnBaseDeDoneeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBaseDeDoneeMouseClicked
+    private void btnTravaillerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTravaillerMouseClicked
         this.setVisible(false);
-        frmBDDRegion bddRegion = new frmBDDRegion();
-        bddRegion.setVisible(true);
-    }//GEN-LAST:event_btnBaseDeDoneeMouseClicked
+        frmTravailler travailler = new frmTravailler();
+        travailler.setVisible(true);
+    }//GEN-LAST:event_btnTravaillerMouseClicked
+
+    private void btnRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetourActionPerformed
+        this.setVisible(false);
+        frmTableauDeBord tdb = new frmTableauDeBord();
+        tdb.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btnRetourActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,10 +375,11 @@ public class frmTDBVisRegSec extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnBaseDeDonee;
     private javax.swing.JButton btnEnregistrerRegion;
     private javax.swing.JButton btnEnregistrerSecteur;
     private javax.swing.JButton btnEnregistrerVisiteur;
+    private javax.swing.JButton btnRetour;
+    private javax.swing.JLabel btnTravailler;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

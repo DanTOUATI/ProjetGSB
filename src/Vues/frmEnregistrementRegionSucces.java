@@ -38,7 +38,7 @@ public class frmEnregistrementRegionSucces extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         btnRetourTDB.setBackground(new java.awt.Color(255, 255, 255));
         btnRetourTDB.setForeground(new java.awt.Color(51, 102, 255));

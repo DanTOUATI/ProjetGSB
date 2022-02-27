@@ -47,7 +47,7 @@ public class frmLoadScreen extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         lblGSBF.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblGSBF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

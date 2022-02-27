@@ -37,6 +37,11 @@ public interface IMetier {
     public ArrayList<Labo>getAllLabo();
     /**
      * 
+     * méthode permettant d'obtenir tous les travaux réalisés par les visiteurs
+     */
+    public ArrayList<Travailler>getAllTravail();
+      /**
+     * 
      *Méthode permettant d'insérer un visiteurs 
      */
     public void InsererVisiteurs(String nom,String Prenom,String adresse,String cp,String ville,String dateEmbauche,String secteur,String labo,String region);
@@ -75,5 +80,14 @@ public interface IMetier {
      * Méthode permettant de vérifier les identifiants lorsqu'une personne se connecte.
      */
     public Responsable VerfierIdentifiants(String Prenom, String Mail);
+    /**
+     * Méthode permettant de dessiner un graphe
+     * @return 
+     */
     public HashMap<String,Double> getDatasGraph1();
+    /**
+     * 
+     * Méthode permettant d'attribuer une ou plusieurs régions à un visiteur
+     */
+   public void InsererTravailVisiteur(int id,String dateEmbauche,String region,String role);
 }

@@ -137,6 +137,37 @@ public class FonctionsMetier implements IMetier
         return mesLabo;
         
     }
+    
+      /**
+     * 
+     * on code la méthode pour récupérer tous les travaux des visiteurs
+     * @return 
+     */
+    @Override
+    public ArrayList<Travailler> getAllTravail() {
+    ArrayList<Travailler>mesTravaux = new ArrayList <Travailler>();
+          try {
+            maCnx=ConnexionBdd.getCnx();
+            //on ecrit dans le ps la requete
+            ps= maCnx.prepareStatement("SELECT visiteur.nom_vis,visiteur.prenom_vis,travailler.date,region.region_nom,travailler.role_tra\n" +
+                                        "FROM travailler\n" +
+                                        "INNER join visiteur on travailler.id_vis = visiteur.id_vis\n" +
+                                        "INNER join region on travailler.id_region = region.id_region\n" +
+                                        "order by visiteur.id_vis");
+            rs=ps.executeQuery();
+            while(rs.next())
+            {
+                Travailler tra =new Travailler(rs.getString(1),rs.getString(2),rs.getDate(3),rs.getString(4),rs.getString(5));
+                mesTravaux.add(tra);
+            }
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesTravaux;   
+    }
+    
+  
     /**
      * 
      * La méthode InsererVisiteurs permet d'enregistrer un nouveau visiteur en lui attribuant un nom, un prénom,une adresse,un code postal, une ville, une date d'embauche,un secteur, un laboratoire et une région
@@ -349,5 +380,29 @@ public class FonctionsMetier implements IMetier
         }
            return lesDatas; 
         }
-}  
+
+    @Override
+    public void InsererTravailVisiteur(int id,String dateEmbauche,String region,String role)
+    {
+        try {
+            maCnx=ConnexionBdd.getCnx();
+      
+            String maSQL="SELECT region.id_region FROM region WHERE region.region_nom='"+region+"'";
+            ps= maCnx.prepareStatement(maSQL);
+            rs=ps.executeQuery();
+            rs.next();
+            int numRegion = rs.getInt(1);
+            rs.close();
+            
+            maCnx=ConnexionBdd.getCnx();
+            maSQL= "INSERT INTO `travailler`(`id_vis`, `date`, `id_region`, `role_tra`) VALUES ("+id+",'"+dateEmbauche+"',"+numRegion+",'"+role+"')";            
+            ps= maCnx.prepareStatement(maSQL);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}   
+ 
+     
  

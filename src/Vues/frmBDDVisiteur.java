@@ -64,7 +64,7 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -312,8 +312,8 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
     private void btnRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetourMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
-        frmTDBVisRegSec frmTdbVRS = new frmTDBVisRegSec();
-        frmTdbVRS.setVisible(true);
+        frmTableauDeBord frmTDB = new frmTableauDeBord();
+        frmTDB.setVisible(true);
     }//GEN-LAST:event_btnRetourMouseClicked
 /**
  * lors d'un clique sur le tableau on remplie les champs correspondant à la ligne sélectionnée

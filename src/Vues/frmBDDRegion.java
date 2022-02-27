@@ -62,7 +62,7 @@ public class frmBDDRegion extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         tblBddRegion.setBackground(new java.awt.Color(240, 240, 240));
         tblBddRegion.setModel(new javax.swing.table.DefaultTableModel(
@@ -108,7 +108,7 @@ public class frmBDDRegion extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Base de données");
 
-        lblImg.setBackground(new java.awt.Color(51, 102, 255));
+        lblImg.setBackground(new java.awt.Color(51, 153, 255));
         lblImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/battement-de-coeur (1).png"))); // NOI18N
 
@@ -249,8 +249,8 @@ public class frmBDDRegion extends javax.swing.JFrame {
     private void btnRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetourMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
-        frmTDBVisRegSec frmTdbVRS = new frmTDBVisRegSec();
-        frmTdbVRS.setVisible(true);
+        frmTableauDeBord frmTDB = new frmTableauDeBord();
+        frmTDB.setVisible(true);
     }//GEN-LAST:event_btnRetourMouseClicked
 /**
  * lorsqu'on clique sur le bouton Secteur on est redirigé sur les secteurs

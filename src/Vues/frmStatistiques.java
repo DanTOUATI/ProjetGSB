@@ -44,6 +44,7 @@ public class frmStatistiques extends javax.swing.JFrame {
         lblImg = new javax.swing.JLabel();
         lblGSBF = new javax.swing.JLabel();
         btnGraph1 = new javax.swing.JButton();
+        btnRetour1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -52,7 +53,7 @@ public class frmStatistiques extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/battement-de-coeur (1).png"))); // NOI18N
 
@@ -63,6 +64,14 @@ public class frmStatistiques extends javax.swing.JFrame {
         btnGraph1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnGraph1MouseClicked(evt);
+            }
+        });
+
+        btnRetour1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnRetour1.setText("<");
+        btnRetour1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRetour1MouseClicked(evt);
             }
         });
 
@@ -81,14 +90,21 @@ public class frmStatistiques extends javax.swing.JFrame {
                         .addComponent(lblGSBF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(btnGraph1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRetour1)
+                            .addComponent(btnGraph1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(btnRetour1)))
                 .addGap(18, 18, 18)
                 .addComponent(lblGSBF)
                 .addGap(55, 55, 55)
@@ -127,12 +143,21 @@ public class frmStatistiques extends javax.swing.JFrame {
         for(Map.Entry valeur : fm.getDatasGraph1().entrySet())
         {
             donnees.setValue(Double.parseDouble(valeur.getValue().toString()),"nombre régions",valeur.getKey().toString());
-        }
+        }  
+    
         JFreeChart graph = ChartFactory.createLineChart("nombre de régions par secteur", "secteurs", "regions", (CategoryDataset) donnees);
         ChartFrame fra = new ChartFrame("Graphique n°1", graph);
         fra.pack();
         fra.setVisible(true);
+        
     }//GEN-LAST:event_btnGraph1MouseClicked
+
+    private void btnRetour1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetour1MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        frmTableauDeBord frmTDB = new frmTableauDeBord();
+        frmTDB.setVisible(true);
+    }//GEN-LAST:event_btnRetour1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -171,6 +196,7 @@ public class frmStatistiques extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGraph1;
+    private javax.swing.JButton btnRetour1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblGSBF;
     private javax.swing.JLabel lblImg;
