@@ -8,12 +8,15 @@ package Vues;
 import Entity.ConnexionBdd;
 import Entity.FonctionsMetier;
 import com.mysql.jdbc.Connection;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -45,6 +48,8 @@ public class frmStatistiques extends javax.swing.JFrame {
         lblGSBF = new javax.swing.JLabel();
         btnGraph1 = new javax.swing.JButton();
         btnRetour1 = new javax.swing.JButton();
+        btnGraph2 = new javax.swing.JButton();
+        btnGraph3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -75,6 +80,20 @@ public class frmStatistiques extends javax.swing.JFrame {
             }
         });
 
+        btnGraph2.setText("Graphique 2");
+        btnGraph2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGraph2MouseClicked(evt);
+            }
+        });
+
+        btnGraph3.setText("Graphique 3");
+        btnGraph3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGraph3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,7 +111,14 @@ public class frmStatistiques extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnRetour1)
-                            .addComponent(btnGraph1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnGraph1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnGraph2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(61, 61, 61))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(btnGraph3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -108,8 +134,12 @@ public class frmStatistiques extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblGSBF)
                 .addGap(55, 55, 55)
-                .addComponent(btnGraph1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGraph1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGraph2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addComponent(btnGraph3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,6 +189,43 @@ public class frmStatistiques extends javax.swing.JFrame {
         frmTDB.setVisible(true);
     }//GEN-LAST:event_btnRetour1MouseClicked
 
+    private void btnGraph2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGraph2MouseClicked
+        // TODO add your handling code here:
+        FonctionsMetier fm;
+        fm = new FonctionsMetier();
+        
+        DefaultPieDataset donnees = new DefaultPieDataset();
+        
+        for(Map.Entry valeur: fm.getDatasGraph2().entrySet())
+        {
+            donnees.setValue(valeur.getKey().toString(),Integer.parseInt(valeur.getValue().toString()));
+        }
+        JFreeChart graph = ChartFactory.createPieChart("régions ou travaille les visiteurs",donnees,true,true,true);
+        ChartFrame fra = new ChartFrame("Graphique n°2", graph);
+        fra.pack();
+        fra.setVisible(true);
+        
+        
+//      DefaultCategoryDataset donnees = new DefaultCategoryDataset();
+//        
+//        for(Map.Entry valeur : fm.getDatasGraph2().entrySet())
+//        {
+//            Double compteur  = Double.parseDouble((valeur.getValue()).toString());
+//            String nomRegion = valeur.getValue().toString();
+//            Integer nbVisiteur = Integer.parseInt(valeur.getValue().toString());
+//            donnees.setValue(compteur, nomRegion, nbVisiteur);
+//        }
+//        JFreeChart graph = ChartFactory.createBarChart("régions ou travaille les visiteurs", "nom des traders","nomsecteur", donnees,PlotOrientation.VERTICAL,true,true,false);
+//        ChartFrame fra = new ChartFrame("Graphique n°2", graph);
+//        fra.pack();
+//        fra.setVisible(true);
+    }//GEN-LAST:event_btnGraph2MouseClicked
+
+    private void btnGraph3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGraph3MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnGraph3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -196,6 +263,8 @@ public class frmStatistiques extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGraph1;
+    private javax.swing.JButton btnGraph2;
+    private javax.swing.JButton btnGraph3;
     private javax.swing.JButton btnRetour1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblGSBF;

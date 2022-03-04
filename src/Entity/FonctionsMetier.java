@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -402,7 +402,52 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-}   
+
+    @Override
+    public HashMap<String, Integer> getDatasGraph2() 
+    {
+        HashMap<String,Integer> lesDatas = new HashMap<>();
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT region.region_nom,COUNT(visiteur.id_vis)\n" +
+"FROM region\n" +
+"INNER JOIN travailler on region.id_region = travailler.id_region\n" +
+"INNER JOIN visiteur on travailler.id_vis=visiteur.id_vis\n" +
+"GROUP BY region.region_nom;");
+            rs= ps.executeQuery();
+            int compteur = 1;
+            while(rs.next())
+            {
+                lesDatas.put(rs.getString(1), rs.getInt(2));
+                compteur++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           return lesDatas; 
+        }
+
+    @Override
+    public HashMap<Integer,String > getDatasGraph3() 
+    {
+        HashMap<Integer,String> lesDatas = new HashMap<>();
+        try {
+            maCnx = ConnexionBdd.getCnx();
+            ps = maCnx.prepareStatement("SELECT COUNT(visiteur.id_vis),visiteur.dateEmbauche_vis\n" +
+"FROM visiteur\n" +
+"GROUP BY visiteur.dateEmbauche_vis");
+            rs= ps.executeQuery();
+            while(rs.next())
+            {
+                lesDatas.put(rs.getInt(1), rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        return lesDatas;      
+    }
+    
+}
  
      
  

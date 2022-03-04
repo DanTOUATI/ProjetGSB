@@ -86,6 +86,16 @@ public interface IMetier {
      */
     public HashMap<String,Double> getDatasGraph1();
     /**
+     *  Méthode permettant de dessiner un graphe 
+     * @return 
+     */
+    public HashMap<String,Integer> getDatasGraph2();
+    /**
+     *  Méthode permettant de dessiner un graphe 
+     * @return 
+     */
+    public HashMap<Integer,String> getDatasGraph3();
+    /**
      * 
      * Méthode permettant d'attribuer une ou plusieurs régions à un visiteur
      */
