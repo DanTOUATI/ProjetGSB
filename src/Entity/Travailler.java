@@ -14,10 +14,55 @@ import java.util.Date;
  */
 public class Travailler 
 {
+
+    /**
+     * @return the nomVisiteur
+     */
+    public String getNomVisiteur() {
+        return nomVisiteur;
+    }
+
+    /**
+     * @param nomVisiteur the nomVisiteur to set
+     */
+    public void setNomVisiteur(String nomVisiteur) {
+        this.nomVisiteur = nomVisiteur;
+    }
+
+    /**
+     * @return the prenomVis
+     */
+    public String getPrenomVis() {
+        return prenomVis;
+    }
+
+    /**
+     * @param prenomVis the prenomVis to set
+     */
+    public void setPrenomVis(String prenomVis) {
+        this.prenomVis = prenomVis;
+    }
+
+    /**
+     * @return the nomRegion
+     */
+    public String getNomRegion() {
+        return nomRegion;
+    }
+
+    /**
+     * @param nomRegion the nomRegion to set
+     */
+    public void setNomRegion(String nomRegion) {
+        this.nomRegion = nomRegion;
+    }
     private int idVisiteur;
     private Date DateTravailler;
     private int idRegion;
     private String roleTravailler;
+    private String nomVisiteur;
+    private String prenomVis;
+    private String nomRegion;
 /**
  * 
  * constructeur
@@ -29,7 +74,14 @@ public class Travailler
         idRegion = unIdReg;
         roleTravailler = unRole;
     }
-
+  public Travailler(String unNomVis,String unPrenom,Date uneDateTravailler,String unNomReg,String unRole)
+    {
+        nomVisiteur=unNomVis;
+        prenomVis=unPrenom;
+        DateTravailler = uneDateTravailler;
+        nomRegion = unNomReg;
+        roleTravailler = unRole;
+    }
   
     public int getIdVisiteur() {
         return idVisiteur;
