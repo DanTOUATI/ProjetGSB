@@ -55,7 +55,6 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
         CBSecteur = new javax.swing.JComboBox<>();
         CBLabo = new javax.swing.JComboBox<>();
         btnModifier = new javax.swing.JButton();
-        cbRegion = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -175,10 +174,9 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
                         .addComponent(txtVille)
                         .addComponent(txtCodePostal)
                         .addComponent(txtAdresse)
-                        .addComponent(CalendarDateEmbauche, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CalendarDateEmbauche, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                         .addComponent(CBSecteur, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CBLabo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbRegion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CBLabo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(btnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -239,9 +237,7 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
                         .addComponent(CBSecteur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CBLabo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbRegion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(44, 44, 44)
                         .addComponent(btnModifier)
                         .addGap(91, 91, 91)))
                 .addComponent(lblValidate)
@@ -280,11 +276,6 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
         {            
             CBLabo.addItem(lab.getNomLabo());
         }
-        
-        for (Regions reg:fm.getAllRegions())
-        {
-            cbRegion.addItem(reg.getNomRegion());
-        }
                                   
         
     }//GEN-LAST:event_formWindowOpened
@@ -320,7 +311,7 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
  * @param evt 
  */
     private void tblBDDVisiteursMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBDDVisiteursMouseClicked
-        String nomVisiteur=tblBDDVisiteurs.getValueAt(tblBDDVisiteurs.getSelectedRow(),1).toString();
+       String nomVisiteur=tblBDDVisiteurs.getValueAt(tblBDDVisiteurs.getSelectedRow(),1).toString();
         txtNom.setText(nomVisiteur);
         String prenomVisiteur=tblBDDVisiteurs.getValueAt(tblBDDVisiteurs.getSelectedRow(),2).toString();
         txtPrenom.setText(prenomVisiteur);
@@ -334,8 +325,6 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
         CBLabo.setSelectedItem(nomLabo);
         String libelleSecteur=tblBDDVisiteurs.getValueAt(tblBDDVisiteurs.getSelectedRow(),7).toString();
         CBSecteur.setSelectedItem(libelleSecteur);
-        String nomRegion = tblBDDVisiteurs.getValueAt(tblBDDVisiteurs.getSelectedRow(), 9).toString();
-        cbRegion.setSelectedItem(nomRegion);
         
         
         try {           
@@ -362,9 +351,10 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
             fm= new FonctionsMetier();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String date = sdf.format(CalendarDateEmbauche.getDate());
-            fm.ModifierVisiteur(idVisiteur, txtNom.getText(),txtPrenom.getText(),txtAdresse.getText(),Integer.parseInt(txtCodePostal.getText()),txtVille.getText(),date,CBSecteur.getSelectedItem().toString(),CBLabo.getSelectedItem().toString(),cbRegion.getSelectedItem().toString());
+            fm.ModifierVisiteur(idVisiteur, txtNom.getText(),txtPrenom.getText(),txtAdresse.getText(),Integer.parseInt(txtCodePostal.getText()),txtVille.getText(),date,CBSecteur.getSelectedItem().toString(),CBLabo.getSelectedItem().toString());
             ActualisationTableau();
          }
+         
         
       
 
@@ -422,7 +412,6 @@ public class frmBDDVisiteur extends javax.swing.JFrame {
     private javax.swing.JButton btnRetour;
     private javax.swing.JButton btnSecteur;
     private javax.swing.JButton btnVisiteur;
-    private javax.swing.JComboBox<String> cbRegion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
